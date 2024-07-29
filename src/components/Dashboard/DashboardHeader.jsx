@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 
 function DashbooardHeader() {
   return (
-    <div className="flex justify-between iitems-center py-3  px-5 ">
+    <div className="flex justify-between items-center py-3  px-5 ">
       <div className="flex items-center gap-2">
-        <div>
+        <Link to='/profile'>
           <img
             src={avatarImg}
             alt="profile image"
             className="h-10 w-10 rounded-full shadow-sm object-cover cursor-pointer"
           />
-        </div>
+        </Link>
         <div className="flex flex-col">
           <span>Hello</span>
           <span className="font-semibold text-black">Daniel</span>

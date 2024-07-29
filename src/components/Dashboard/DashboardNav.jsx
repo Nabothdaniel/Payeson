@@ -40,7 +40,7 @@ function DashboardNav() {
   ];
 
   return (
-    <div className="flex justify-around items-center mr-20 py-2  w-full bg-white shadow-sm fixed z-[555] bottom-0 ">
+    <div className="flex justify-around items-center mr-20 py-2  w-full bg-white shadow-sm  ">
       {services.map((service) => (
         <Link
           key={service.id}

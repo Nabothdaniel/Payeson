@@ -1,9 +1,11 @@
 import React from "react";
+import {useForm} from 'react-hook-form'
 import { Link } from "react-router-dom";
 
 function RegisterFrom() {
+
   return (
-    <form className="px-5 mt-20">
+    <form className=" mt-20">
      <div className="mb-3">
       <label htmlFor="fullname" className=" text-[1.1rem] mb-2 font-semibold block">
         Full name 

@@ -81,7 +81,7 @@ function Notfications() {
     },
   ]);
   return (
-    <div className="px-3">
+    <div className="">
       {notifications.map((notification) => (
         <div
           className="flex justify-between items-center gap-3 mb-5 bg-white shadow-md rounded-md p-4  px-5 cursor-pointer"

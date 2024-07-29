@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 function LoginRight({title,subtitle,extra,path}) {
   return (
     <>
-      <div className="flex justify-between items-center py-3 mx-2 px-1 md:px-5">
+      <div className="flex justify-between items-center py-3  ">
         <Link to={path}>
           <FaArrowLeft />
         </Link>

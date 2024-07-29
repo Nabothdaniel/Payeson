@@ -67,14 +67,14 @@ const LoginLeft = () => {
         type="submit"
         className=" mt-[15rem] w-full  font-semibold text-center text-[1.3rem] p-3  bg-violet-700 rounded-xl text-white"
       >
-        Create an account
+        Login
       </button>
       <p
-        className=" pt-2 cursor-pointer text-center"
+        className=" pt-5 cursor-pointer text-center"
         onClick={toggleVisibility}
       >
         Forgot Password.
-        <Link to="/resetpassword" className="text-violet-700 font-semibold">
+        <Link to="/resetpassword" className="ml-2 text-violet-700 font-semibold">
           Reset Password
         </Link>
       </p>

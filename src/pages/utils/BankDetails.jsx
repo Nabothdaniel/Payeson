@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginRight from "../components/login/LoginRight";
-import BankDetailsPending from "../components/BankDetails/BankDetailsPending";
-import BankDetailsForm from "../components/BankDetails/BankDetailsForm";
+import LoginRight from "../../components/login/LoginRight";
+import BankDetailsPending from "../../components/BankDetails/BankDetailsPending";
+import BankDetailsForm from "../../components/BankDetails/BankDetailsForm";
 
 function BankDetails() {
   return (

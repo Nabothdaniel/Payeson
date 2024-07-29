@@ -7,19 +7,19 @@ function SupportOptions() {
   const [contacts,setContacts] = useState([
     {
       id:1,
-      icon:<FaWhatsapp className="w-10 h-10 text-green-700"/>,
+      icon:<FaWhatsapp className="w-7 h-7 text-green-700"/>,
       title:'Whatsaap',
       message:'Message us on whatsaap and get attended to in minutes'
     },
     {
       id:2,
-      icon:<MdOutlineMessage className="w-10 h-10 text-blue-700"/>,
+      icon:<MdOutlineMessage className="w-7 h-7 text-blue-700"/>,
       title:'Email Us',
       message:'Message us through email'
     },
     {
       id:3,
-      icon:<BsChatDots className="w-10 h-10 text-purple-600"/>,
+      icon:<BsChatDots className="w-7 h-7 text-purple-600"/>,
       title:'Live Chat',
       message:'message us here and a coustomer care agent will attend to you ASAP'
     },
@@ -36,8 +36,8 @@ function SupportOptions() {
           {contact.icon}
         </div>
         <div>
-          <p className="text-[1.2rem] text-black font-bold">{contact.title}</p>
-          <p className="text-[1rem] text-black">
+          <p className="text-[1rem] text-black font-semibold">{contact.title}</p>
+          <p className="text-[.9rem] text-black">
          {contact.message}
           </p>
         </div>
