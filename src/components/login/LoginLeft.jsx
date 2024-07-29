@@ -78,6 +78,9 @@ const LoginLeft = () => {
           Reset Password
         </Link>
       </p>
+      <Link to="/dashboard" className="ml-2 text-black font-semibold">
+          Go to dashboard
+        </Link>
     </div>
   );
 };
