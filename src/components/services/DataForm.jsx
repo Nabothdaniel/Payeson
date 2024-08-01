@@ -52,7 +52,7 @@ function DataForm() {
 
         <button
         type="submit"
-        className=" mt-[30rem] mb-5 w-full  font-semibold text-center text-[1.1rem] p-3  bg-violet-700 rounded-xl text-white"
+        className=" mt-[10rem] mb-5 w-full  font-semibold text-center text-[1.1rem] p-3  bg-orange-700 rounded-xl text-white"
       >
         Buy
       </button>

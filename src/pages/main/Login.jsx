@@ -7,6 +7,7 @@ function Login() {
     <div className=' mx-4 md:px-72'>
     <LoginRight title='Login' path='/' subtitle='Welcome back' extra='Login to continue' />
     <LoginLeft/>
+    
     </div>
   )
 }

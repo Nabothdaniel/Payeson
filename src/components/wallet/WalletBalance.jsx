@@ -9,7 +9,7 @@ function WalletBalance() {
 
     const toggleVisibility = () => setIsVisible(!isVisible);
   return (
-    <div className="bg-purple-700 h-auto text-white flex items-center justify-between rounded-md shadow-sm py-2 px-2">
+    <div className="bg-orange-700 h-auto text-white flex items-center justify-between rounded-md shadow-sm py-2 px-2">
       <div className="mx-3">
         <div className="inline-flex items-center py-2 gap-2 text-white ">
           <span className=" text-[0.9rem]">Available balance</span>

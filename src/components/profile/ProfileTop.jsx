@@ -17,10 +17,10 @@ function ProfileTop() {
         <img
           src={AvatarImg}
           alt="profile image"
-          className="mx-auto object-cover h-64 w-64 rounded-full"
+          className="mx-auto object-cover h-36 w-36 rounded-full"
         />
         < div className="absolute bottom-0 right-[5rem] sm:right-[8rem] md:right-64 xl:right-56">
-        <FaPen className="w-8 h-8 bg-purple-700 text-white p-2 rounded-full  cursor-pointer" />
+        <FaPen className="w-8 h-8 bg-orange-700 text-white p-2 rounded-full  cursor-pointer" />
         </div>
       </div>
     </div>

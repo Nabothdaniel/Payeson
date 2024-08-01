@@ -3,7 +3,7 @@ import React from "react";
 function DataForm() {
   const networkOptions = ["Ibadan Electricity", "Jos Electricity", "Kaduna Electricity", "Ikeja Disco", "Abuja Electricity","Port Harcout Electrcity","EKo Electricity","Enugu Electricity","Kano Electricity","Benin Electricity"];
   return (
-    <div className="mx-3 md:mx-auto">
+    <div className="mx-2 md:mx-auto">
       <form>
         <div className="mb-3 ">
           <label
@@ -53,7 +53,7 @@ function DataForm() {
        <div>
        <button
         type="submit"
-        className=" mt-[30rem] w-full mb-5 font-semibold text-center text-[1.1rem] p-3  bg-violet-700 rounded-xl text-white"
+        className=" mt-[10rem] w-full mb-5 font-semibold text-center text-[1.1rem] p-3  bg-orange-700 rounded-xl text-white"
       >
         Pay
       </button>

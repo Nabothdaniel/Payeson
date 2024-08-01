@@ -28,7 +28,7 @@ function SetPin() {
       </div>
       <button
         onClick={setUserPin}
-        className=" w-full block md:px-64 font-semibold text-center text-[1.2rem] p-3 my-6 bg-violet-700 rounded-md text-white mt-52 "
+        className=" w-full block md:px-64 font-semibold text-center text-[1.2rem] p-3 my-6 bg-orange-700 rounded-md text-white mt-52 "
       >
         Set pin
       </button>

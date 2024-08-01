@@ -21,7 +21,7 @@ function Notfications() {
     {
       id: 1,
       icon: (
-        <BsArrowDown className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2" />
+        <BsArrowDown className="w-10 h-10 text-orange-700 bg-purple-300/40 rounded-full p-2" />
       ),
       title: "Transfer from",
       username: "JOHN DOE",
@@ -33,7 +33,7 @@ function Notfications() {
     {
       id: 2,
       icon: (
-        <BsArrowUp className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2" />
+        <BsArrowUp className="w-10 h-10 text-orange-700 bg-purple-300/40 rounded-full p-2" />
       ),
       title: "Transfer to",
       username: "JANE DOE",
@@ -45,7 +45,7 @@ function Notfications() {
     {
       id: 3,
       icon: (
-        <BsArrowUp className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2" />
+        <BsArrowUp className="w-10 h-10 text-orange-700 bg-purple-300/40 rounded-full p-2" />
       ),
       title: "Transfer to ",
       username: "JOHN DOE",
@@ -57,7 +57,7 @@ function Notfications() {
     {
       id: 4,
       icon: (
-        <FiSmartphone className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2" />
+        <FiSmartphone className="w-10 h-10 text-orange-700 bg-purple-300/40 rounded-full p-2" />
       ),
       title: "Airtime transfer to ",
       username: "",
@@ -70,7 +70,7 @@ function Notfications() {
     {
       id: 5,
       icon: (
-        <FiSmartphone className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2" />
+        <FiSmartphone className="w-10 h-10 text-orange-700 bg-purple-300/40 rounded-full p-2" />
       ),
       title: "Gift card reedeemed  ",
       username: "",
@@ -105,7 +105,7 @@ function Notfications() {
             <div className="text-black font-semibold text-[1.1rem]">
               {notification.price}
             </div>
-            <div className="bg-purple-700/70 text-white rounded-md px-[5px] py-[1px] text-[.8rem]">
+            <div className="bg-orange-700/70 text-white rounded-md px-[5px] py-[1px] text-[.8rem]">
               {notification.status}
             </div>
           </div>

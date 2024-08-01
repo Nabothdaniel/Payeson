@@ -2,28 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    --white:#fff;
-    --btn-color:rgb(47, 197, 207);
-}
 
-body{
-    background: hsla(180, 5%, 96%, 0.89);
-}
-
-/**utility classes*/
-input{
-    outline:none;
-    border:none
-}
-.bg-position{
-    background-position: center;
-}
-
-ul li{
-    list-style: none !important;
-}
-
-.icon-color{
-    color:var(--btn-color);
-}

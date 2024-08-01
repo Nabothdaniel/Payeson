@@ -11,21 +11,21 @@ function DashboardNav() {
     {
       id: 1,
       path: "/dashboard",
-      icon:<RiHomeLine className="w-8 h-8 text-purple-700 bg-purple-300/40 rounded-full p-2 " />
+      icon:<RiHomeLine className="w-8 h-8 text-orange-700 bg-orange-300/40 rounded-full p-2 " />
       ,
       text: "Home",
     },
     {
       id: 2,
       path: "/wallet",
-      icon:  <PiWalletThin className="w-8 h-8 text-purple-700 bg-purple-300/40 rounded-full p-2 " /> ,
+      icon:  <PiWalletThin className="w-8 h-8 text-orange-700 bg-orange-300/40 rounded-full p-2 " /> ,
       text: "Wallet",
     },
     {
       id: 3,
       path: "/support",
       icon: (
-        <BiSupport className="w-8 h-8 text-purple-700 bg-purple-300/40 rounded-full p-2 " />
+        <BiSupport className="w-8 h-8 text-orange-700 bg-orange-300/40 rounded-full p-2 " />
       ),
       text: "Support",
     },
@@ -33,7 +33,7 @@ function DashboardNav() {
       id: 4,
       path: "/profile",
       icon: (
-        <FaRegCircleUser className="w-8 h-8 text-purple-700 bg-purple-300/40 rounded-full p-2 " />
+        <FaRegCircleUser className="w-8 h-8 text-orange-700 bg-orange-300/40 rounded-full p-2 " />
       ),
       text: "Profile",
     },

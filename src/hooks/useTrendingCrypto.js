@@ -18,7 +18,7 @@ const useTrendingCrypto = () => {
         });
         const formattedData = response.data.map((coin) => ({
           id: coin.id,
-          image: `https://www.coingecko.com/coins/${coin.id}/images/thumb-small.jpg`, // Construct image URL
+          image: `https://www.coingecko.com/coins/${coin.id}/images/thumb-small.jpg`,
           name: coin.name,
           symbol: coin.symbol,
           current_price: coin.current_price,

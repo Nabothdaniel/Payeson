@@ -55,7 +55,7 @@ const networkOptions = [
 
       <button
         type="submit"
-        className=" mt-[30rem] w-full mb-5  font-semibold text-center text-[1.1rem] p-3  bg-violet-700 rounded-xl text-white"
+        className=" mt-[10rem] w-full mb-5  font-semibold text-center text-[1.1rem] p-3  bg-orange-700 rounded-xl text-white"
       >
         Buy
       </button>

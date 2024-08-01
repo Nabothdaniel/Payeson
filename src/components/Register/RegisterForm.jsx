@@ -6,10 +6,10 @@ function RegisterFrom() {
 
   return (
     <form className=" mt-20">
-     <div className="mb-3">
+     <div className="mb-5">
       <label htmlFor="fullname" className=" text-[1.1rem] mb-2 font-semibold block">
         Full name 
-        <span className="text-[#95066E] ml-2">*</span>
+        <span className="text-[#840695] ml-2">*</span>
       </label>
      <input
         type="text"
@@ -19,7 +19,7 @@ function RegisterFrom() {
         id="fullname"
       />
      </div>
-     <div className="mb-3">
+     <div className="mb-5">
       <label htmlFor="username" className=" text-[1.1rem] mb-2 font-semibold block">
         Username
         <span className="text-[#95066E] ml-2">*</span>
@@ -32,7 +32,7 @@ function RegisterFrom() {
         id="username"
       />
      </div>
-     <div className="mb-3">
+     <div className="mb-5">
       <label htmlFor="email" className=" text-[1.1rem] mb-2 font-semibold block">
         Email address
         <span className="text-[#95066E] ml-2">*</span>
@@ -45,7 +45,7 @@ function RegisterFrom() {
         id="email"
       />
      </div>
-     <div className="mb-3">
+     <div className="mb-5">
       <label htmlFor="phonenumber" className=" text-[1.1rem] mb-2 font-semibold block">
         Phone number
         <span className="text-[#95066E] ml-2">*</span>
@@ -59,7 +59,7 @@ function RegisterFrom() {
       />
      </div>
 
-     <div className="mb-3">
+     <div className="mb-5">
       <label htmlFor="password" className=" text-[1.1rem] mb-2 font-semibold block">
         Password
         <span className="text-[#95066E] ml-2">*</span>
@@ -73,7 +73,7 @@ function RegisterFrom() {
       />
      </div>
      <div className="my-4">
-     <Link to='/register' className='w-full block md:px-64 font-semibold text-center text-[1.2rem] p-3 my-6 bg-violet-700 rounded-md text-white mt4'> Create</Link>
+     <Link to='/register' className='w-full block md:px-64 font-semibold text-center text-[1.2rem] p-3 my-6 bg-orange-700 rounded-md text-white mt4'> Create</Link>
      </div>
     </form>
   );

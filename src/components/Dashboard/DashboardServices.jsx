@@ -13,26 +13,26 @@ const DashboardServices = () => {
     {
       id: 1,
       path: "/airtime",
-      icon: <FiSmartphone className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2 " />,
+      icon: <FiSmartphone className="w-10 h-10 text-orange-700 bg-orange-300/40 rounded-full p-2 " />,
       text: "Airtime",
     },
     {
       id: 2,
       path: "/data",
-      icon: <TbArrowsDownUp className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2 " />,
+      icon: <TbArrowsDownUp className="w-10 h-10 text-orange-700 bg-orange-300/40 rounded-full p-2 " />,
       text: "Data",
     },
    
     {
       id: 3,
       path: "/television",
-      icon: <PiTelevisionSimpleLight className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2 " />,
+      icon: <PiTelevisionSimpleLight className="w-10 h-10 text-orange-700 bg-orange-300/40 rounded-full p-2 " />,
       text: "Tv",
     },
     {
       id: 4,
       path: "/electricity",
-      icon: <HiOutlineBolt className="w-10 h-10 text-purple-700 bg-purple-300/40 rounded-full p-2 " />,
+      icon: <HiOutlineBolt className="w-10 h-10 text-orange-700 bg-orange-300/40 rounded-full p-2 " />,
       text: "Electricity",
     },
   ];

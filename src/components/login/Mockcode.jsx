@@ -1,36 +1,48 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { FiEye } from "react-icons/fi";
 import { BsEyeSlash } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
 
 const LoginLeft = () => {
-  const navigate = useNavigate();
-  //sets the visbility of the element 
-  const [isVisible, setIsVisible] = useState(false);
-  //sets passoword visibilit
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  //this switches between visible and hidden
-  const toggleVisibility = () => setIsVisible(!isVisible);
-  const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
+  const togglePasswordVisibility = () =>
+    setIsPasswordVisible(!isPasswordVisible);
 
-  const handleSubmit =()=>{
-    console.log('submit handled')
-    navigate('/dashboard')
-  }
+  const onSubmit = (data) => {
+    // Replace this with actual login logic
+    console.log(data); // Log submitted data
+
+    // Simulate successful login
+    toast.success("Login successful!");
+
+    // Clear form fields
+    reset();
+  };
 
   return (
     <div className="">
-      <p className="pb-4 text-black font-semibold  ">
+      <p className="pb-4 text-black font-semibold">
         Login to your account by Phone Number or Email Address below:
       </p>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {/* ... email or phone number input fields ... */}
         {isVisible ? (
           <input
             type="text"
             className="w-full block border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]"
             placeholder="name@example.com"
+            rules={{ required: 'Email is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email format' } }}
+         
           />
         ) : (
           <input
@@ -51,41 +63,39 @@ const LoginLeft = () => {
             type="text"
             className="w-full block  border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]"
             placeholder="+234 0000 0000"
+            rules={{ required: 'Phone number is required', pattern: { value: /^\d{11}$/, message: 'Invalid phone number format' } }}
+    
           />
         )}
-        <p
-          className="text-orange-700 font-semibold pt-2 cursor-pointer"
-          onClick={toggleVisibility}
-        >
-          {isVisible ? "use phone number" : "use email address"}
-        </p>
+        {/* ... email or phone number input fields ... */}
 
         <div className="mt-5 flex items-center gap-4 border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]">
           <input
-            type={isPasswordVisible ? "text": "password"}
-            className="w-full outline-none "
+            type={isPasswordVisible ? "text" : "password"}
+            {...register("password", { required: "Password is required" })}
+            className="w-full outline-none"
             placeholder="type your password"
           />
           <div onClick={togglePasswordVisibility} className="cursor-pointer">
-              {isPasswordVisible ? <BsEyeSlash className="w-5 h-5" /> : <FiEye className="w-5 h-5"/> }
-            </div>
+            {isPasswordVisible ? (
+              <BsEyeSlash className="w-5 h-5" />
+            ) : (
+              <FiEye className="w-5 h-5" />
+            )}
+          </div>
+          {errors.password && (
+            <span className="text-red-500">{errors.password.message}</span>
+          )}
         </div>
+
+        <button
+          type="submit"
+          className="mt-[15rem] w-full font-semibold text-center text-[1.3rem] p-3 bg-violet-700 rounded-xl text-white"
+        >
+          Login
+        </button>
+        {/* ... rest of your component ... */}
       </form>
-      <button
-        onClick={handleSubmit}
-        className=" mt-[9rem] w-full  font-semibold text-center text-[1.3rem] p-3  bg-orange-500 rounded-xl text-white"
-      >
-        Login
-      </button>
-      <p
-        className=" pt-5 cursor-pointer text-center"
-        onClick={toggleVisibility}
-      >
-        Forgot Password.
-        <Link to="/resetpassword" className="ml-2 text-orange-500 font-semibold">
-          Reset Password
-        </Link>
-      </p>
     </div>
   );
 };
