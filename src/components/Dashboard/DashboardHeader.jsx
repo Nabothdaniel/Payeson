@@ -1,10 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import avatarImg from "../../assets/images/avater.jpg";
 import { BiNotification } from "react-icons/bi";
 import { CiLogout } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 function DashbooardHeader() {
+  const user = useSelector(state=> state.user.userData)
   return (
     <div className="flex justify-between items-center py-3  px-5 ">
       <div className="flex items-center gap-2">
@@ -17,7 +19,7 @@ function DashbooardHeader() {
         </Link>
         <div className="flex flex-col">
           <span>Hello</span>
-          <span className="font-semibold text-black">Daniel</span>
+          <span className="font-semibold text-black">{user.username}</span>
         </div>
       </div>
       <div className="flex items-center gap-3 ">

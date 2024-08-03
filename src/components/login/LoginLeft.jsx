@@ -1,93 +1,88 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FiEye } from "react-icons/fi";
-import { BsEyeSlash } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+// LoginForm.js
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword ,signInWithPhoneNumber, RecaptchaVerifier} from 'firebase/auth';
+import { auth } from '../../auth/firebase';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FiEye } from 'react-icons/fi';
+import { BsEyeSlash } from 'react-icons/bs';
 
-const LoginLeft = () => {
+function LoginLeft() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
-  //sets the visbility of the element 
-  const [isVisible, setIsVisible] = useState(false);
-  //sets passoword visibilit
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  //this switches between visible and hidden
-  const toggleVisibility = () => setIsVisible(!isVisible);
   const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
-  const handleSubmit =()=>{
-    console.log('submit handled')
-    navigate('/dashboard')
-  }
+  const onSubmit = async data => {
+    const isEmail = data.identifier.includes('@');
+    if (isEmail) {
+      try {
+        await signInWithEmailAndPassword(auth, data.identifier, data.password);
+        toast.success('Login successful');
+        navigate('/dashboard');
+      } catch (error) {
+        toast.error('Login failed');
+      }
+    } else {
+      try {
+        window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+          'size': 'invisible',
+          'callback': function(response) {
+            console.log('Recaptcha verified');
+          }
+        }, auth);
+
+        const appVerifier = window.recaptchaVerifier;
+        const confirmationResult = await signInWithPhoneNumber(auth, data.identifier, appVerifier);
+        const verificationCode = window.prompt('Please enter the verification code that was sent to your mobile device.');
+        await confirmationResult.confirm(verificationCode);
+
+        toast.success('Login successful');
+        navigate('/dashboard');
+      } catch (error) {
+        toast.error('Login failed');
+      }
+    }
+  };
 
   return (
-    <div className="">
-      <p className="pb-4 text-black font-semibold  ">
-        Login to your account by Phone Number or Email Address below:
-      </p>
-      <form>
-        {isVisible ? (
+    <div className="login-form">
+      <form className="mt-20" onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-7">
+          <label htmlFor="address" className="text-[1.1rem] mb-2 font-semibold block">
+            Email address or Phone number
+            <span className="text-[#95066E] ml-2">*</span>
+          </label>
           <input
             type="text"
-            className="w-full block border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]"
+            className="w-full border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]"
             placeholder="name@example.com"
+            {...register('address', { required: true })}
           />
-        ) : (
+          {errors.email && <span className="text-red-500">This field is required</span>}
+        </div>
+        <div className="mb-5 flex items-center gap-4 border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]">
           <input
-            type="text"
-            className="w-full hidden border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]"
-            placeholder="name@example.com"
-          />
-        )}
-
-        {isVisible ? (
-          <input
-            type="text"
-            className="w-full hidden border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]"
-            placeholder="+234 0000 0000"
-          />
-        ) : (
-          <input
-            type="text"
-            className="w-full block  border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]"
-            placeholder="+234 0000 0000"
-          />
-        )}
-        <p
-          className="text-orange-700 font-semibold pt-2 cursor-pointer"
-          onClick={toggleVisibility}
-        >
-          {isVisible ? "use phone number" : "use email address"}
-        </p>
-
-        <div className="mt-5 flex items-center gap-4 border-solid border border-black/40 rounded-md bg-white p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder:text-gray-500 text-[1.2rem]">
-          <input
-            type={isPasswordVisible ? "text": "password"}
-            className="w-full outline-none "
+            type={isPasswordVisible ? "text" : "password"}
+            className="w-full outline-none"
             placeholder="type your password"
+            {...register('password', { required: true })}
           />
           <div onClick={togglePasswordVisibility} className="cursor-pointer">
-              {isPasswordVisible ? <BsEyeSlash className="w-5 h-5" /> : <FiEye className="w-5 h-5"/> }
-            </div>
+            {isPasswordVisible ? <BsEyeSlash className="w-5 h-5" /> : <FiEye className="w-5 h-5" />}
+          </div>
         </div>
+        {errors.password && <span className="text-red-500">This field is required</span>}
+        <button type="submit" className="mt-[8rem] w-full font-semibold text-center text-[1.3rem] p-3 bg-orange-500 rounded-xl text-white">
+          Login
+        </button>
       </form>
-      <button
-        onClick={handleSubmit}
-        className=" mt-[9rem] w-full  font-semibold text-center text-[1.3rem] p-3  bg-orange-500 rounded-xl text-white"
-      >
-        Login
-      </button>
-      <p
-        className=" pt-5 cursor-pointer text-center"
-        onClick={toggleVisibility}
-      >
-        Forgot Password.
-        <Link to="/resetpassword" className="ml-2 text-orange-500 font-semibold">
-          Reset Password
-        </Link>
-      </p>
+      <ToastContainer />
     </div>
   );
-};
+}
 
 export default LoginLeft;
